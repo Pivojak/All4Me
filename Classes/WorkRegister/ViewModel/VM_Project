@@ -1,0 +1,113 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace All4Me
+{
+    /// <summary>
+    /// Třída sloužící jako View Model pro projekt, tedy je na tuto třídu Bindováno při úpravě projektu
+    /// </summary>
+    public class VM_Project
+    {
+        /// <summary>
+        /// Vnitřní odkaz na projekt
+        /// </summary>
+        private WorkProject project;
+        /// <summary>
+        /// Název projektu
+        /// </summary>
+        public string Name
+        {
+            get
+            {
+                return project.Name;
+            }
+        }
+        /// <summary>
+        /// Popis projektu
+        /// </summary>
+        public string Description
+        {
+            get
+            {
+                return project.Description;
+            }
+        }
+        /// <summary>
+        /// Plánovaná doba projektu
+        /// </summary>
+        public string PlanTime
+        {
+            get
+            {
+                return project.PlanTime.ToString();
+            }
+        }
+        /// <summary>
+        /// Části projektu
+        /// </summary>
+        public string ProjectEvents
+        {
+            get
+            {
+                string word = "";
+                foreach(string str in project.ProjectEvents)
+                {
+                    word += str + "\n";
+                }
+                return word;
+            }
+        }
+        /// <summary>
+        /// První den projektu
+        /// </summary>
+        public DateTime StartDay
+        {
+            get
+            {
+                return project.StartDay;
+            }
+        }
+        /// <summary>
+        /// Komentáře projektu
+        /// </summary>
+        public string Comments
+        {
+            get
+            {
+                string word = "";
+                foreach (string str in project.Comments)
+                {
+                    word += str + "\n";
+                }
+                return word;
+            }
+        }
+        /// <summary>
+        /// Do List projektu
+        /// </summary>
+        public string DoList
+        {
+            get
+            {
+                string word = "";
+                foreach (string str in project.DoList)
+                {
+                    word += str + "\n";
+                }
+                return word;
+            }
+        }
+
+        /// <summary>
+        ///  Konstruktor
+        /// </summary>
+        /// <param name="project">Projekt, který se zobrazí a bude jeho data bindováno</param>
+        public VM_Project(WorkProject project)
+        {
+            this.project = project;
+        }
+    }
+}
