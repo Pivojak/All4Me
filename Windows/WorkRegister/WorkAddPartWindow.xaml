@@ -1,0 +1,61 @@
+<Window x:Class="All4Me.WorkAddPartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:All4Me"
+        mc:Ignorable="d"
+        Title="Přidej dopolední / odpolední blok" Height="550" Width="450" WindowStartupLocation="CenterScreen"
+        Icon="Pict\job.ico" Style="{DynamicResource DefaultWindow}">
+    <Grid Style="{DynamicResource DefaultGrid}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Source="Pict\job.png" Grid.Row="0" Grid.Column="0"
+               Margin="10" MinWidth="170" MinHeight="170" Grid.ColumnSpan="2"
+               />
+        <!--Denni blok 1-->
+        <Grid Grid.Row="1" Style="{DynamicResource MenuGrid}" Margin="10,5,10,5">
+            <TextBlock Text="Denní blok" FontSize="25" FontWeight="Bold"
+                       HorizontalAlignment="Center" Foreground="White"/>
+        </Grid>
+
+        <Grid Grid.Row="2" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Od *" Style="{DynamicResource NadpisTextBoxu}"/>
+            <TextBlock Text="Do *" Grid.Column="1" Style="{DynamicResource NadpisTextBoxu}"/>
+        </Grid>
+
+        <Grid Grid.Row="3" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBox Name="fromPartTextBox" Style="{DynamicResource BasicInputTextBox}"/>
+            <TextBox Name="toPartTextBox" Style="{DynamicResource BasicInputTextBox}" Grid.Column="1" />
+        </Grid>
+
+        <TextBlock Grid.Row="4" Text="Náplň práce *"
+                   Style="{DynamicResource NadpisTextBoxu}"/>
+        <TextBox Grid.Row="5" Name="contentPartTextBox" Style="{DynamicResource BasicInputTextBox}"
+                 TextWrapping="Wrap"/>
+
+        <Button Name="saveButton" Margin="10,5,5,5"
+                Style="{DynamicResource MenuButton}" Content="Ulož"
+                Click="SaveButton_Click" IsDefault="True" Grid.Row="17"
+                />
+    </Grid>
+</Window>
