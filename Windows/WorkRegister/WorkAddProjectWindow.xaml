@@ -1,0 +1,107 @@
+﻿<Window x:Class="All4Me.WorkAddProjectWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:All4Me"
+        mc:Ignorable="d"
+        Title="Přidej / uprav projekt" Height="750" Width="800"
+        Style="{DynamicResource DefaultWindow}" WindowStartupLocation="CenterScreen"
+        Icon="Pict\job.ico" Closing="Window_Closing">
+    <Grid Style="{DynamicResource DefaultGrid}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="80"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="80"/>
+            </Grid.RowDefinitions>
+
+            <Image Source="Pict\job.png" Grid.Row="0" Grid.Column="0"
+               Margin="10" MinWidth="170" MinHeight="170" Grid.ColumnSpan="2"
+               />
+
+            <Grid Grid.Row="1" Style="{DynamicResource MenuGrid}" Margin="10,5,10,5">
+                <TextBlock Text="Základní informace" FontSize="25" FontWeight="Bold"
+                       HorizontalAlignment="Center" Foreground="White"/>
+            </Grid>
+
+            <TextBlock Grid.Row="2"  Text="Název *"
+                   Style="{DynamicResource NadpisTextBoxu}"/>
+            <TextBox Grid.Row="3" Name="nameTextBox" Style="{DynamicResource BasicInputTextBox}"
+                  Text="{Binding Name, Mode=OneWay}" ToolTip="Název projektu"/>
+
+            <TextBlock Grid.Row="4" Text="Datum zahájení *"
+                   Style="{DynamicResource NadpisTextBoxu}"/>
+            <TextBox Grid.Row="5" Name="dateTextBox" Style="{DynamicResource BasicInputTextBox}"
+                 Text="{Binding StartDay,Mode=OneTime, StringFormat=dd.MM.yyyy}" ToolTip="Datum zahájení projektu ve formátu jako 12.12.2020"/>
+
+            <TextBlock Grid.Row="6"  Text="Plánovaná doba [hod] *"
+                   Style="{DynamicResource NadpisTextBoxu}"/>
+            <TextBox Grid.Row="7" Name="planTimeTextBox" Style="{DynamicResource BasicInputTextBox}"
+                  Text="{Binding PlanTime, Mode=OneWay}" ToolTip="Plánova doba na projekt v hodinách"/>
+
+            <TextBlock Grid.Row="8" Text="Části projektu *"
+                   Style="{DynamicResource NadpisTextBoxu}"/>
+            <TextBox Grid.Row="9" Name="projectEventsTextBox" Style="{DynamicResource BasicInputTextBox}"
+                  Text="{Binding ProjectEvents, Mode=OneWay}" TextWrapping="Wrap"
+                     AcceptsReturn="True" ToolTip="Jednotlivé body odděluj pomocí ENTER"/>
+
+            <TextBlock Grid.Row="10" Text="Popis *"
+                   Style="{DynamicResource NadpisTextBoxu}"/>
+            <TextBox Grid.Row="11" Name="descriptionTextBox" Style="{DynamicResource BasicInputTextBox}"
+                  Text="{Binding Description, Mode=OneWay}" TextWrapping="Wrap"
+                     AcceptsReturn="True" ToolTip="Podrobný popis projektu"/>
+
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Style="{DynamicResource MenuGrid}" Margin="10,5,10,5">
+                <TextBlock Text="Doplňující informace" FontSize="25" FontWeight="Bold"
+                       HorizontalAlignment="Center" Foreground="White"/>
+            </Grid>
+
+            <TextBlock Grid.Row="1" Text="Poznámky"
+                   Style="{DynamicResource NadpisTextBoxu}"/>
+            <TextBox Grid.Row="2" Name="commentsTextBox" Style="{DynamicResource BasicInputTextBox}"
+                  Text="{Binding Comments, Mode=OneWay}" TextWrapping="Wrap"
+                     AcceptsReturn="True" ToolTip="Jednotlivé poznámky odděluj pomocí ENTER"/>
+
+            <TextBlock Grid.Row="3" Text="Do list"
+                   Style="{DynamicResource NadpisTextBoxu}"/>
+            <TextBox Grid.Row="4" Name="doListTextBox" Style="{DynamicResource BasicInputTextBox}"
+                  Text="{Binding DoList, Mode=OneWay}" TextWrapping="Wrap"
+                     AcceptsReturn="True" ToolTip="Jednotlivé body odděluj pomocí ENTER"/>
+        </Grid>
+
+        <Button Name="saveButton" Margin="10,5,5,5" HorizontalAlignment="Center"
+                Style="{DynamicResource MenuButton}" Content="Ulož" Grid.ColumnSpan="2"
+                Click="SaveButton_Click" IsDefault="True" Grid.Row="17"
+                />
+    </Grid>
+</Window>

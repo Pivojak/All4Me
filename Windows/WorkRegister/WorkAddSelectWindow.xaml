@@ -1,0 +1,33 @@
+﻿<Window x:Class="All4Me.WorkAddSelectWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:All4Me"
+        mc:Ignorable="d"
+        Title="Výběr" Height="450" Width="300" WindowStartupLocation="CenterScreen"
+        Style="{DynamicResource DefaultWindow}" Icon="Pict\job.ico">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.ColumnSpan="2" Style="{DynamicResource DefaultGrid}">
+            <Image Source="Pict\job.png" Grid.ColumnSpan="2" Width="200"
+                   Height="180"/>
+        </Grid>
+        <Button Grid.Row="1" Grid.Column="0" Margin="10,50,10,50" Name="projectRecord"
+                Background="#FF145257" Foreground="White" Content="Projekt"
+                FontSize="30" FontWeight="Bold" BorderBrush="White" BorderThickness="2"
+                Click="ProjectRecord_Click"/>
+        <Button Grid.Row="1" Grid.Column="1" Margin="10,50,10,50" Name="dayRecord"
+                Background="#FF145257" Foreground="White" Content="Den"
+                FontSize="30" FontWeight="Bold" BorderBrush="White" BorderThickness="2"
+                Click="DayRecord_Click"/>
+    </Grid>
+</Window>
