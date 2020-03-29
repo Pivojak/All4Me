@@ -1,0 +1,100 @@
+﻿<Window x:Class="All4Me.FinanceSelectWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:All4Me"
+        mc:Ignorable="d"
+        Title="Výběr finančních záznamů" Height="650" Width="350" WindowStartupLocation="CenterScreen"
+        Style="{DynamicResource DefaultWindow}" Icon="Pict\cash.ico">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.7*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.ColumnSpan="2" Style="{DynamicResource MenuGrid}"/>
+        <TextBlock Style="{DynamicResource Title2White}" Text="Vyber si záznamy" Grid.ColumnSpan="2"
+                   />
+        <!--Obrazek-->
+        <Grid Grid.Row="1" Grid.ColumnSpan="2" Style="{DynamicResource DefaultGrid}">
+            <Image Source="Pict\selectPicture.png" Stretch="Uniform" Margin="10"
+               VerticalAlignment="Center" Width="200" Height="180" />
+        </Grid>
+        
+        <!--Spodní grid pro zadání hledaných informací-->
+        <Grid Style="{DynamicResource DefaultGrid}" Grid.Row="3" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <!-- Výběr kategorii ve které hledám záznamy-->
+            <TextBlock Grid.Row="1" Text="Měsíc" Style="{DynamicResource NadpisTextBoxu}"/>
+            <ComboBox Grid.Row="2" Margin="10,4,10,4" FontSize="13" FontWeight="Bold" 
+                      Name="monthComboBox">
+                <ComboBoxItem  Content="Leden"/>
+                <ComboBoxItem Content="Únor" />
+                <ComboBoxItem  Content="Březen"/>
+                <ComboBoxItem Content="Duben" />
+                <ComboBoxItem  Content="Květen"/>
+                <ComboBoxItem Content="Červen" />
+                
+                <ComboBoxItem  Content="Červenec"/>
+                <ComboBoxItem Content="Srpen" />
+                <ComboBoxItem  Content="Září"/>
+                <ComboBoxItem Content="Říjen" />
+                <ComboBoxItem  Content="Listopad"/>
+                <ComboBoxItem Content="Prosinec" />
+            </ComboBox>
+            <!--Výběr měsíce pro hledání záznamů-->
+            <TextBlock Grid.Row="3" Text="Kategorie" Style="{DynamicResource NadpisTextBoxu}"/>
+            <ComboBox Grid.Row="4" Margin="10,4,10,4" FontSize="13" 
+                  FontWeight="Bold" Name="categoryComboBox">
+                <ComboBoxItem Content="Jídlo"/>
+                <ComboBoxItem Content="Zábava"/>
+                <ComboBoxItem Content="Pití"/>
+                <ComboBoxItem Content="Auto"/>
+                <ComboBoxItem Content="Pojištění"/>
+                <ComboBoxItem Content="Bydlení"/>
+                <ComboBoxItem Content="Elektřina"/>
+            </ComboBox>
+            <!--Výběr bilance -->
+            <TextBlock Grid.Row="5" Text="Typ zůstatku" Style="{DynamicResource NadpisTextBoxu}"/>
+            <ComboBox Grid.Row="6" Margin="10,4,10,4" FontSize="13" 
+                  FontWeight="Bold" Name="typeBalanceComboBox">
+                <ComboBoxItem  Content="Bankovní účet"/>
+                <ComboBoxItem Content="Hotovost" />
+            </ComboBox>
+
+            <!--Výběr typu transakce -->
+            <TextBlock Grid.Row="7" Text="Typ transakce" Style="{DynamicResource NadpisTextBoxu}"/>
+            <ComboBox Grid.Row="8" Margin="10,4,10,4" FontSize="13" 
+                  FontWeight="Bold" Name="typeRecordComboBox">
+                <ComboBoxItem Content="Výdaje" />
+                <ComboBoxItem  Content="Příjmy"/>
+            </ComboBox>
+
+            <StackPanel Grid.Row="10" Orientation="Horizontal">
+                <Button Style="{DynamicResource SaveButton}" Content="Hledat" Name="findButton"
+                        Click="FindButton_Click"/>
+                <Button Style="{DynamicResource SaveButton}" Content="Tisk" Name="printButton"
+                        Click="PrintButton_Click"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
